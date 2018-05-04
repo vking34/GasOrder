@@ -23,7 +23,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:layout_below="@id/img_logo"
-        android:id="@+id/username"
+        android:id="@+id/firstname"
         android:layout_width="match_parent"
         android:layout_height="38dp" />
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/firstname"
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="38dp" />

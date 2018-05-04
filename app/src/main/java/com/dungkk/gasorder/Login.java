@@ -13,6 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,9 +40,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loginstart);
+        setContentView(R.layout.activity_login);
         requestPermision();
-        user = (EditText) findViewById(R.id.username);
+        user = (EditText) findViewById(R.id.firstname);
         pass = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.bt_login);
         guest = (TextView) findViewById(R.id.guest);
@@ -42,8 +52,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         signup.setOnClickListener(this);
         guest.setOnClickListener(this);
 
-
-    }
+    };
 
     private void  wirteJson(String fileName, String body){
         File file = new File(json);
@@ -83,22 +92,62 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     }
 
 
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_login:
-                String username = user.getText().toString();
+                final String username = user.getText().toString();
                 String password = pass.getText().toString();
 
-                String s = "{\"login\":[{\"username\":\""+username+"\", \"password\":\""+password+"\"}]}";
-                wirteJson("login.json", s);
+//                String s = "{\"login\":[{\"username\":\""+username+"\", \"password\":\""+password+"\"}]}";
+//                wirteJson("login.json", s);
 
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                JSONObject userJson = new JSONObject();
+                try {
+                    userJson.put("username", username);
+                    userJson.put("password", password);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                String url = "http://192.168.1.2/login";
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, userJson,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Toast.makeText(Login.this, response.toString(), Toast.LENGTH_LONG).show();
+                                try {
+                                    if(response.getBoolean("status")){
+
+                                        User.setUsername(username);
+                                        Intent intent = new Intent(Login.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }
+                                    else {
+                                        Toast.makeText(Login.this, "Error user or password", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        },
+
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(Login.this, "Error", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                );
+
+                requestQueue.add(jsonObjectRequest);
                 break;
+
             case R.id.bt_signup:
                 Intent intent0 = new Intent(this, SignUp.class);
                 startActivity(intent0);

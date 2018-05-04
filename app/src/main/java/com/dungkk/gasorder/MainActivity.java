@@ -18,8 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.dungkk.gasorder.fragment.FragmentHistory;
+import com.dungkk.gasorder.fragment.FragmentLogin;
 import com.dungkk.gasorder.fragment.FragmentOrder;
 import com.dungkk.gasorder.fragment.FragmentProduct;
+import com.dungkk.gasorder.fragment.FragmentProfile;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
@@ -101,6 +103,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         switch (item.getItemId()){
 
+            case R.id.nav_profile:
+                replaceFragment(new FragmentProfile());
+                break;
+
             case R.id.nav_products:
                 replaceFragment(new FragmentProduct());
                 break;
@@ -111,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 replaceFragment(new FragmentHistory());
                 break;
             case R.id.login:
+                replaceFragment(new FragmentLogin());
                 break;
             case R.id.nav_share:
                 break;
