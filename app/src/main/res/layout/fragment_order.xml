@@ -1,16 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order"
-        android:textSize="50dp"
+        android:id="@+id/product"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Gas Cylinder: "
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/productText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/product"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        />
+
+    <TextView
+        android:id="@+id/phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/productText"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Phone Number: "
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/phonenumberText"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/phonenumber"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:inputType="phone"
+        />
+
+
+    <TextView
+        android:id="@+id/floor"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/phonenumberText"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Floor/ No/ Alley: "
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/floorText"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/floor"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/floorText"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Address: "
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/addressText"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/address"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        />
+
+    <TextView
+        android:id="@+id/humanCheck"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/addressText"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Human Check: "
+        android:textStyle="bold"
+        />
+    
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/humanCheck"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"/>
+        android:text="CONFIRM"
+        android:background="@color/blue"
+        />
+
 
 </RelativeLayout>
