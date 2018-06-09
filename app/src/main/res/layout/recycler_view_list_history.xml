@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_text_gray"
+    android:layout_margin="@dimen/fab_margin">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:text="Date: " />
+
+    <TextView
+        android:id="@+id/htr_date"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/date"
+        android:layout_alignBottom="@+id/date"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/phonenumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/date"
+        android:layout_below="@+id/date"
+        android:layout_marginTop="5dp"
+        android:text="Phone Number: " />
+
+    <TextView
+        android:id="@+id/htr_phonenumber"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/phonenumber"
+        android:layout_alignBottom="@+id/phonenumber"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/date"
+        android:layout_below="@+id/phonenumber"
+        android:layout_marginTop="5dp"
+        android:text="Address: " />
+
+    <TextView
+        android:id="@+id/htr_address"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/address"
+        android:layout_alignBottom="@+id/address"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/date"
+        android:layout_below="@+id/address"
+        android:layout_marginTop="5dp"
+        android:text="Brand: " />
+
+    <TextView
+        android:id="@+id/htr_brand"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/brand"
+        android:layout_alignBottom="@+id/brand"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/date"
+        android:layout_below="@+id/brand"
+        android:layout_marginTop="5dp"
+        android:text="Size: " />
+
+    <TextView
+        android:id="@+id/htr_size"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/size"
+        android:layout_alignBottom="@+id/size"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/date"
+        android:layout_below="@+id/size"
+        android:layout_marginTop="5dp"
+        android:text="Price: " />
+
+    <TextView
+        android:id="@+id/htr_price"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/price"
+        android:layout_alignBottom="@+id/price"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/date"
+        android:layout_below="@+id/price"
+        android:textSize="5dp"
+        android:layout_marginTop="5dp" />
+
+
+
+
+</RelativeLayout>

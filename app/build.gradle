@@ -18,8 +18,29 @@ android {
     }
 }
 
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.1.1'
+            }
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':bannerslider')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:design:27.1.1'
@@ -28,4 +49,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.github.nkzawa:socket.io-client:0.3.0'
+    implementation 'com.google.android.gms:play-services:12.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+
+
 }
