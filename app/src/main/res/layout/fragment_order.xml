@@ -1,122 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <include layout="@layout/item_toolbar"
+        android:id="@+id/toolbar"/>
 
-    <TextView
-        android:id="@+id/product"
+    <ScrollView
+        android:background="@drawable/background"
+        android:layout_marginBottom="?actionBarSize"
+        android:layout_marginTop="?actionBarSize"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:text="Gas Cylinder: "
-        android:textStyle="bold"
-        />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/productText"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/product"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/phonenumber"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/productText"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:text="Phone Number: "
-        android:textStyle="bold"
-        />
+            <TextView
+                android:id="@+id/product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/sp_gasCode"
+                android:layout_marginTop="20dp"
+                android:elevation="50dp"
+                android:text="Product: "
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textStyle="italic|bold" />
 
-    <EditText
-        android:id="@+id/phonenumberText"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_below="@+id/phonenumber"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:inputType="phone"
-        />
+            <Spinner
+                android:id="@+id/sp_gasCode"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/address"
+                android:layout_alignEnd="@id/ac_address"
+                android:layout_below="@+id/product"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/border_text"
+                android:entries="@array/gasCode"
+                android:prompt="@string/gasCode_prompt" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sp_gasCode"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:elevation="50dp"
+                android:text="Address: "
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textStyle="italic|bold"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/ac_address"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@+id/address"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:background="@drawable/border_text"
+                android:imeOptions="actionSearch"
+                android:textColor="#000"
+                android:textSize="15sp"
+
+                />
+
+            <Button
+                android:id="@+id/btn_gps"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/ac_address"
+                android:layout_below="@+id/ac_address"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_custom_1"
+                android:text="GPS"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/btn_openMap"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btn_gps"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/btn_gps"
+                android:background="@drawable/button_custom_2"
+                android:text="open map"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btn_openMap"
+                android:layout_alignEnd="@+id/ac_address"
+                android:layout_toEndOf="@+id/btn_openMap"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/button_custom_3"
+                android:text="CLEAR"
+                android:textColor="@color/white"/>
 
 
-    <TextView
-        android:id="@+id/floor"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/phonenumberText"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:text="Floor/ No/ Alley: "
-        android:textStyle="bold"
-        />
+            <TextView
+                android:id="@+id/phonenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_gps"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="Phone Number: "
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textStyle="italic|bold"/>
 
-    <EditText
-        android:id="@+id/floorText"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_below="@+id/floor"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        />
+            <EditText
+                android:id="@+id/et_phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/phonenumber"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="5dp"
+                android:background="@drawable/border_text"
+                android:ems="11"
+                android:hint=""
+                android:inputType="phone"
+                android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/floorText"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:text="Address: "
-        android:textStyle="bold"
-        />
+            <TextView
+                android:id="@+id/more_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_phoneNumber"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:text="More detail : "
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textStyle="italic|bold"/>
 
-    <EditText
-        android:id="@+id/addressText"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_below="@+id/address"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        />
+            <EditText
+                android:id="@+id/et_details"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/more_detail"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="5dp"
+                android:background="@drawable/border_text"
+                android:hint="  Tell us more detail"
+                android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/humanCheck"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/addressText"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:text="Human Check: "
-        android:textStyle="bold"
-        />
-    
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/et_details"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
     <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/humanCheck"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:text="CONFIRM"
-        android:background="@color/blue"
-        />
+        android:id="@+id/ibtn_order"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:text="Confirm Order"
+        android:textStyle="bold"
+        android:background="@color/gray"/>
 
 
 </RelativeLayout>

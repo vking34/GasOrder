@@ -6,4 +6,11 @@
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="blue">#FF51B8F9</color>
+    <color name="grayBlack">#4e4e4e</color>
+    <color name="grayWhite">#ececec</color>
+    <color name="gray">#a6a6a6</color>
+    <color name="red_order">#bc4747</color>
+    <color name="blue_product">#4770bc</color>
+    <color name="purple_tips">#6d47bc</color>
+    <color name="product_list">#12467a</color>
 </resources>
